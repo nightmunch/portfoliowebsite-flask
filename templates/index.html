@@ -1,0 +1,100 @@
+{% extends "layout.html" %}
+{% block content %}
+<!-- Banner -->
+<section id="banner" class="major">
+    <div class="inner">
+        <header class="major">
+            <h1>Hi, my name is {{data.name}}!</h1>
+        </header>
+        <div class="content">
+            <p>{% autoescape false %}{{data.desc}}{% endautoescape %}</p>
+            <ul class="actions">
+                <li><a href="#one" class="button next scrolly">Get Started</a></li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<!-- Main -->
+<div id="main">
+
+    <!-- One -->
+        <!-- <section id="two" class="tiles">
+            <header class="major" style="text-align: center; padding-left: 45%; margin: 10px;">
+                <h2>Projects</h2>
+            </header>
+        </section> -->
+        <section id="one" class="tiles">
+            {% for k,v in data.project.items() %}
+            <article>
+                <span class="image">
+                    <img src="{{ url_for('static', filename='images/test.jpg') }}" alt="" />
+                </span>
+                <header class="major">
+                    <h3><a href="{{url_for('landing', project=v.projectname)}}" class="link">{{v.projectname}}</a></h3>
+                    <p>{% autoescape false %}{{v.projectdesc}}{% endautoescape %}</p>
+                </header>
+            </article>
+            {% endfor %}
+            <!-- <article>
+                <span class="image">
+                    <img src="images/pic02.jpg" alt="" />
+                </span>
+                <header class="major">
+                    <h3><a href="landing.html" class="link">CryptoGuess</a></h3>
+                    <p>Cryptocurrency Trading Bot <br><br>predict the next price movement of the selected cryptocurrency market</p>
+                </header>
+            </article>
+            <article>
+                <span class="image">
+                    <img src="images/pic03.jpg" alt="" />
+                </span>
+                <header class="major">
+                    <h3><a href="landing.html" class="link">ImHere</a></h3>
+                    <p>Student Attendance System <br><br>this system packed with a facial recognition system to help lecturer/teacher to check their student attendance</p>
+                </header>
+            </article>
+            <article>
+                <span class="image">
+                    <img src="images/pic04.jpg" alt="" />
+                </span>
+                <header class="major">
+                    <h3><a href="landing.html" class="link">Ipsum</a></h3>
+                    <p>Nisl sed aliquam</p>
+                </header>
+            </article>
+            <article>
+                <span class="image">
+                    <img src="images/pic05.jpg" alt="" />
+                </span>
+                <header class="major">
+                    <h3><a href="landing.html" class="link">Consequat</a></h3>
+                    <p>Ipsum dolor sit amet</p>
+                </header>
+            </article>
+            <article>
+                <span class="image">
+                    <img src="images/pic06.jpg" alt="" />
+                </span>
+                <header class="major">
+                    <h3><a href="landing.html" class="link">Etiam</a></h3>
+                    <p>Feugiat amet tempus</p>
+                </header>
+            </article> -->
+        </section>
+
+    <!-- Two -->
+        <!-- <section id="two">
+            <div class="inner">
+                <header class="major">
+                    <h2>Massa libero</h2>
+                </header>
+                <p>Nullam et orci eu lorem consequat tincidunt vivamus et sagittis libero. Mauris aliquet magna magna sed nunc rhoncus pharetra. Pellentesque condimentum sem. In efficitur ligula tate urna. Maecenas laoreet massa vel lacinia pellentesque lorem ipsum dolor. Nullam et orci eu lorem consequat tincidunt. Vivamus et sagittis libero. Mauris aliquet magna magna sed nunc rhoncus amet pharetra et feugiat tempus.</p>
+                <ul class="actions">
+                    <li><a href="landing.html" class="button next">Get Started</a></li>
+                </ul>
+            </div>
+        </section> -->
+
+</div>
+{% endblock %}
